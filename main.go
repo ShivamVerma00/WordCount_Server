@@ -9,6 +9,7 @@ import (
 )
 
 func server(res http.ResponseWriter, req *http.Request) {
+	res.WriteHeader(http.StatusOK)
 	str := "Demo Demo Test test, demo string for this code to check the frequency of top ten words.."
 
 	count := make(map[string]int)
@@ -30,6 +31,7 @@ func server(res http.ResponseWriter, req *http.Request) {
 		fmt.Fprintf(res, "Word  %s            count:%d\n", words[i], count[words[i]])
 
 	}
+	io.WriteString(res, "Success")
 
 }
 func main() {
